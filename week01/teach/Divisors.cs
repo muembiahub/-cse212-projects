@@ -1,12 +1,27 @@
 public static class Divisors {
     /// <summary>
     /// Entry point for the Divisors class
+    /// 
     /// </summary>
     public static void Run() {
-        List<int> list = FindDivisors(80);
-        Console.WriteLine("<List>{" + string.Join(", ", list) + "}"); // <List>{1, 2, 4, 5, 8, 10, 16, 20, 40}
-        List<int> list1 = FindDivisors(79);
-        Console.WriteLine("<List>{" + string.Join(", ", list1) + "}"); // <List>{1}
+        Console.WriteLine("Divisors");
+        Console.WriteLine("Put a number in and get a list of all the divisors for that number excluding the number itself.");
+        Console.WriteLine("====================== First Number ======================");
+        Console.WriteLine("Enter a number: ");
+        int number = int.Parse(Console.ReadLine());
+
+        // Call the FindDivisors method and store the result in a list
+        List<int> list = FindDivisors(number);
+        Console.WriteLine("<List>{" + string.Join(", ", list) + "}");
+
+        Console.WriteLine("====================== Second Number ======================");
+        Console.WriteLine("Enter a number: ");
+        int number2 = int.Parse(Console.ReadLine());
+
+        // Call the FindDivisors method and store the result in a list
+        List<int> list2 = FindDivisors(number2);
+        Console.WriteLine("<List>{" + string.Join(", ", list2) + "}");
+
     }
 
     /// <summary>
@@ -14,11 +29,17 @@ public static class Divisors {
     /// and excluding the number itself. Modulo will be used
     /// to test divisibility.
     /// </summary>
-    /// <param name="number">The number to find the divisor</param>
+    /// <param name="number">The number to find the divisors for</param>
     /// <returns>List of divisors</returns>
     private static List<int> FindDivisors(int number) {
         List<int> results = new();
-        // TODO problem 1
+        for (int i = 1; i < number; i++ ) {
+            if (number % i == 0) {
+                results.Add(i);
+            }
+        }
+
         return results;
     }
+    
 }
